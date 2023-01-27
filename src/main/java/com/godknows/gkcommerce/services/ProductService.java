@@ -4,6 +4,7 @@ import com.godknows.gkcommerce.dto.ProductDTO;
 import com.godknows.gkcommerce.entities.Product;
 import com.godknows.gkcommerce.repositories.ProductRepository;
 
+import com.godknows.gkcommerce.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,7 +22,7 @@ public class ProductService {
     @Transactional(readOnly = true)
     public ProductDTO findById(Long id){
         Optional<Product> result = repository.findById(id);
-        Product product = result.get();
+        Product product = result.orElseThrow(()-> new ResourceNotFoundException("Recurso não encontrado"));
         ProductDTO dto = new ProductDTO (product);
         return dto;
     }
