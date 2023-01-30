@@ -1,12 +1,24 @@
 package com.godknows.gkcommerce.dto;
 
 import com.godknows.gkcommerce.entities.Product;
+import jakarta.validation.MessageInterpolator;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 
 public class ProductDTO {
 
     private Long id;
+
+    @NotBlank(message="Campo Obrigatório")
+    @Size(min=3,max=80, message="Mínimo de 3 e Máximo de 80 caracteres.")
     private String name;
+
+    @NotBlank(message="Campo Obrigatório")
+    @Size(min=10, message="Mínimo de 10 caracteres.")
     private String description;
+
+    @Positive(message="Valor tem de ser positivo.")
     private Double price;
     private String imgUrl;
 
