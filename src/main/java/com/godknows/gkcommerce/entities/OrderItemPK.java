@@ -1,9 +1,11 @@
 package com.godknows.gkcommerce.entities;
 
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import java.io.Serializable;
 
-public class OrderItemPK {
+public class OrderItemPK implements Serializable {
+    private static final long serialVersionUID=1L;
 
     @ManyToOne
     @JoinColumn(name="order_id")

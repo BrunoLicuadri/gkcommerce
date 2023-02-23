@@ -6,7 +6,7 @@ import com.godknows.gkcommerce.repositories.ProductRepository;
 
 import com.godknows.gkcommerce.services.exceptions.DatabaseException;
 import com.godknows.gkcommerce.services.exceptions.ResourceNotFoundException;
-import jakarta.persistence.EntityNotFoundException;
+import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;

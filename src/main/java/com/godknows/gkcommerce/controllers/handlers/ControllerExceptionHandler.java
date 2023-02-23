@@ -1,11 +1,9 @@
 package com.godknows.gkcommerce.controllers.handlers;
 
 import com.godknows.gkcommerce.dto.CustomError;
-import com.godknows.gkcommerce.dto.FieldMessage;
 import com.godknows.gkcommerce.dto.ValidationError;
 import com.godknows.gkcommerce.services.exceptions.DatabaseException;
 import com.godknows.gkcommerce.services.exceptions.ResourceNotFoundException;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -13,6 +11,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import javax.servlet.http.HttpServletRequest;
 import java.time.Instant;
 
 @ControllerAdvice
