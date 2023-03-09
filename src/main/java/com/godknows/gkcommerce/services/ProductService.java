@@ -1,7 +1,9 @@
 package com.godknows.gkcommerce.services;
 
+import com.godknows.gkcommerce.dto.CategoryDTO;
 import com.godknows.gkcommerce.dto.ProductDTO;
 import com.godknows.gkcommerce.dto.ProductMinDTO;
+import com.godknows.gkcommerce.entities.Category;
 import com.godknows.gkcommerce.entities.Product;
 import com.godknows.gkcommerce.repositories.ProductRepository;
 
@@ -80,6 +82,12 @@ public class ProductService {
         entity.setDescription(dto.getDescription());
         entity.setPrice(dto.getPrice());
         entity.setImgUrl(dto.getImgUrl());
+        entity.getCategories().clear();
+        for(CategoryDTO catDto : dto.getCategories()){
+            Category cat = new Category();
+            cat.setId(catDto.getId());
+            entity.getCategories().add(cat);
+        }
     }
 
 

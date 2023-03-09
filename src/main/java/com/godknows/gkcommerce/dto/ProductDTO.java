@@ -1,10 +1,11 @@
 package com.godknows.gkcommerce.dto;
 
+import com.godknows.gkcommerce.entities.Category;
 import com.godknows.gkcommerce.entities.Product;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProductDTO {
 
@@ -22,6 +23,9 @@ public class ProductDTO {
     private Double price;
     private String imgUrl;
 
+    @NotEmpty(message="Deve ter pelo menos 1 categoria")
+    private List<CategoryDTO> categories = new ArrayList<>();
+
     public ProductDTO(Long id, String name, String description, Double price, String imgUrl) {
         this.id = id;
         this.name = name;
@@ -36,6 +40,9 @@ public class ProductDTO {
         description = entity.getDescription();
         price = entity.getPrice();
         imgUrl = entity.getImgUrl();
+        for (Category cat : entity.getCategories()){
+            categories.add(new CategoryDTO(cat));
+        }
     }
 
 
@@ -64,5 +71,7 @@ public class ProductDTO {
         return imgUrl;
     }
 
-
+    public List<CategoryDTO> getCategories() {
+        return categories;
+    }
 }
