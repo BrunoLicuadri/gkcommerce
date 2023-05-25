@@ -26,7 +26,7 @@ import java.util.Arrays;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
-    @Value("${cors.origins")
+    @Value("${cors.origins}")
     private String corsOrigins;
 
     @Autowired
