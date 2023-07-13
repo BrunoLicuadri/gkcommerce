@@ -29,10 +29,11 @@ public class Order {
     @OneToMany(mappedBy="id.order")
     private Set<OrderItem> items = new HashSet<>();
 
-
-    public List<Order> getOrders(){
-        return items.stream().map(x->x.getOrder()).toList();
+    
+    public List<Product> getProducts(){
+        return items.stream().map(x->x.getProduct()).toList();
     }
+    
     public Order(){
     }
 

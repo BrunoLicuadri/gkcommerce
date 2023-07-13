@@ -11,8 +11,9 @@ import java.util.*;
 @Entity
 @Table(name="tb_user")
 public class User implements UserDetails {
-
-    @Id
+	private static final long serialVersionUID = 1L;
+	
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
